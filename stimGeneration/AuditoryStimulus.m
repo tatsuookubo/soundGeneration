@@ -16,6 +16,7 @@ classdef AuditoryStimulus < handle
     properties (Dependent = true, SetAccess = private)
         totalDur
         stimDur
+        timeVec
     end
     
     methods       
@@ -29,6 +30,10 @@ classdef AuditoryStimulus < handle
             stimDur = obj.totalDur - obj.startPadDur - obj.endPadDur;
         end
         
+        function timeVec = get.timeVec(obj) 
+            timeVec = (1/obj.sampleRate):(1/obj.sampleRate):(1*length(obj.stimulus)/obj.sampleRate);
+        end
+            
         %%------Common Utilities---------------------------------------------------------
         function carrier = makeSine(obj,frequency,dur)
             ts = (1/obj.sampleRate):(1/obj.sampleRate):(dur);
@@ -50,9 +55,8 @@ classdef AuditoryStimulus < handle
         function [figHandle,plotHandle] = plot(obj,varargin)
             fontSize = 14;
             lineWidth = 1; 
-            timeInS = (1/obj.sampleRate):(1/obj.sampleRate):(1*length(obj.stimulus)/obj.sampleRate);
             figHandle = figure('Color',[1 1 1],'Name','AuditoryStimulus');
-            plotHandle = plot(timeInS,obj.stimulus);
+            plotHandle = plot(obj.timeVec,obj.stimulus);
             set(plotHandle,'LineWidth',lineWidth)
             
             box off; axis on;
