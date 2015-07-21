@@ -23,7 +23,7 @@ classdef PipStimulus < AuditoryStimulus
         %%------Calculate Dependents-----------------------------------------------------------------
         function cyclesPerPip = get.cyclesPerPip(obj)
             cyclesPerPip = obj.pipDur / (1/obj.carrierFreqHz);
-            if ~isinteger(mod(cyclesPerPip,0.5))
+            if (mod(cyclesPerPip,0.5))~=0
                 error('numCyclesPerPip must be divisible by 0.5')
             end
         end
