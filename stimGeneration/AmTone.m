@@ -4,7 +4,7 @@ classdef AmTone < AuditoryStimulus
     properties
         modDepth            = 1;
         modFreqHz           = 15;
-        carrierFreqHz       = 150;
+        carrierFreqHz       = 300;
         envelope            = 'sinusoid';
         waveDur             = 5;
     end
@@ -36,7 +36,7 @@ classdef AmTone < AuditoryStimulus
                     return
                 case {'sinusoid','sin'}
                     % make an envelope that fits the pulse duration
-                    modEnvelope = obj.makeSine(obj.modFreqHz,obj.waveDur);
+                    modEnvelope = obj.makeSine(obj.modFreqHz/2,obj.waveDur);
                 case {'triangle','tri'}
                     modEnvelope = obj.modulationDepth*sawtooth(2*pi*[.25:1/(2*obj.waveDur):.75],.5)';
                 case {'rampup'}

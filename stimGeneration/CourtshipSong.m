@@ -11,7 +11,7 @@ classdef CourtshipSong < AuditoryStimulus
         %%------Constructor-----------------------------------------------------------------
         function stimulus = get.stimulus(obj)
             % Read in courtship song recording
-            [stimulus, obj.sampleRate] = audioread('C:\Users\Alex\Documents\GitHub\auditoryExpts\stimGeneration\courtshipSamps\LongCourtshipSong_Standard.wav');
+            [stimulus, obj.sampleRate] = audioread('C:\Users\Alex\Documents\GitHub\soundGeneration\stimGeneration\courtshipSamps\LongCourtshipSong_Standard.wav');
             voltagePeak = max(abs(stimulus));
             scalingFactor = obj.maxVoltage/voltagePeak; 
             stimulus = stimulus.*scalingFactor;
