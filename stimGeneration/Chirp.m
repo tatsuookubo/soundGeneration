@@ -7,6 +7,7 @@ classdef Chirp < AuditoryStimulus
         startFrequency  = 90;
         endFrequency    = 1500;
         chirpLength     = 10;
+        mode            = 'speaker';
     end
     
     properties (Dependent = true, SetAccess = private)
@@ -30,8 +31,10 @@ classdef Chirp < AuditoryStimulus
             stimulus = modEnvelope.*stimulus;
             
             % Calculate ramp down 
+            if strcmp(obj.mode,'speakers')
             rampdown = linspace(1,0.25,sampsPerChirp)';
             stimulus = rampdown.*stimulus; 
+            end
             
             % Scale the stim to the maximum voltage in the amp
             stimulus = stimulus*obj.maxVoltage;
