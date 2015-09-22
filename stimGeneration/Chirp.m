@@ -31,8 +31,12 @@ classdef Chirp < AuditoryStimulus
             stimulus = modEnvelope.*stimulus;
             
             % Calculate ramp down 
-            if strcmp(obj.mode,'speakers')
-            rampdown = linspace(1,0.25,sampsPerChirp)';
+            if strcmp(obj.mode,'speaker')
+                if obj.startFrequency < obj.endFrequency
+                    rampdown = linspace(1,0.25,sampsPerChirp)';
+                else 
+                    rampdown = linspace(0.25,1,sampsPerChirp)';
+                end
             stimulus = rampdown.*stimulus; 
             end
             
