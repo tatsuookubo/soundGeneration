@@ -16,6 +16,7 @@ classdef PipStimulus < AuditoryStimulus
     properties (Dependent = true, SetAccess = private)
         cyclesPerPip
         stimulus
+        description 
     end
     
     methods
@@ -69,8 +70,10 @@ classdef PipStimulus < AuditoryStimulus
             stimulus = obj.addPad(stimulus);
         end
         
-        
-        
+        function description = get.description(obj)
+            description = [num2str(obj.numPips),' pips, ',num2str(obj.carrierFreqHz), 'Hz', 'IPI = ',num2str(obj.ipi)];
+        end
+             
     end
     
 end
