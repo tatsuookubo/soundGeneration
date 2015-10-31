@@ -11,7 +11,6 @@ classdef noStimulus < AuditoryStimulus
         function stimulus = get.stimulus(obj)
             % Make a zero stimulus that is the length of start pad
             stimulus = [];
-            obj.endPadDur = 0;
             stimulus = obj.addPad(stimulus);
         end
         
