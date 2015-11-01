@@ -12,6 +12,7 @@ classdef SineWave < AuditoryStimulus
     
     properties (Dependent = true, SetAccess = private)
         stimulus
+        description
     end
     
     methods
@@ -54,7 +55,9 @@ classdef SineWave < AuditoryStimulus
             stimulus = obj.addPad(stimulus);
         end
         
-        
+        function description = get.description(obj)
+            description = [num2str(obj.carrierFreqHz),'Hz tone'];
+        end
         
     end
     

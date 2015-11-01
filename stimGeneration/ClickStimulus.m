@@ -8,6 +8,7 @@ classdef ClickStimulus < AuditoryStimulus
     
     properties (Dependent = true, SetAccess = private)
         stimulus
+        description
     end
     
     methods
@@ -29,7 +30,9 @@ classdef ClickStimulus < AuditoryStimulus
             stimulus = obj.addPad(stimulus);
         end
         
-        
+        function description = get.description(obj)
+            description = [num2str(obj.numClicks),' clicks, ',num2str(obj.ici), 's ICI'];
+        end
         
     end
     

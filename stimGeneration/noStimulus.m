@@ -1,6 +1,10 @@
 classdef noStimulus < AuditoryStimulus
     % Basic subclass for making just the pad and no stimulus
     
+    properties
+        description     = 'No stimulus';
+    end
+    
     properties (Dependent = true, SetAccess = private)
         stimulus
     end

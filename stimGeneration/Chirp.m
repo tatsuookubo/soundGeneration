@@ -12,6 +12,7 @@ classdef Chirp < AuditoryStimulus
     
     properties (Dependent = true, SetAccess = private)
         stimulus
+        description
     end
     
     methods
@@ -47,6 +48,14 @@ classdef Chirp < AuditoryStimulus
             stimulus = obj.addPad(stimulus);
         end
         
+        function description = get.description(obj)
+            if obj.startFrequency < obj.endFrequency
+                chirpType = 'Ascending';
+            else 
+                chirpType = 'Descending';
+            end
+            description = [chirpType,' chirp, ',num2str(obj.startFrequency),'Hz to ',num2str(obj.endFrequency),'Hz'];
+        end
                 
         %%------Plot Spectogram--------------------------------------------------------------------
         function spectPlot(obj,varargin)
@@ -57,6 +66,7 @@ classdef Chirp < AuditoryStimulus
             ylabel('Frequency (Hz)','FontSize',obj.defaultFontSize)
             xlabel('Time (seconds)','FontSize',obj.defaultFontSize)
         end
+        
         
     end
     

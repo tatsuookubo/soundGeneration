@@ -3,6 +3,10 @@ classdef PulseSong < AuditoryStimulus
     %
     % AVB 2015
     
+    properties
+        description     = 'Pulse song';
+    end
+    
     properties (Dependent = true, SetAccess = private)
         stimulus
     end

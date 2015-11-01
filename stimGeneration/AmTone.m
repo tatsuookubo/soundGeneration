@@ -11,6 +11,7 @@ classdef AmTone < AuditoryStimulus
     
     properties (Dependent = true, SetAccess = private)
         stimulus
+        description
     end
     
     methods
@@ -48,6 +49,10 @@ classdef AmTone < AuditoryStimulus
             end
             % apply the envelope to all of the modulation bounds          
             wave = modEnvelope.*wave;
+        end
+        
+        function description = get.description(obj)
+            description = ['AM Tone, ',num2str(obj.carrierFreqHz),'Hz carrier, ',num2str(obj.modFreqHz),'Hz modulation'];
         end
     end
 end

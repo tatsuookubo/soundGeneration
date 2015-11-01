@@ -71,7 +71,7 @@ classdef PipStimulus < AuditoryStimulus
         end
         
         function description = get.description(obj)
-            description = [num2str(obj.numPips),' pips, ',num2str(obj.carrierFreqHz), 'Hz', 'IPI = ',num2str(obj.ipi)];
+            description = [num2str(obj.numPips),' pips, ',num2str(obj.carrierFreqHz), 'Hz carrier, ', 'IPI = ',num2str(obj.ipi)];
         end
              
     end

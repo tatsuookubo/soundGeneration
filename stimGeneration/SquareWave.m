@@ -10,6 +10,7 @@ classdef SquareWave < AuditoryStimulus
     
     properties (Dependent = true, SetAccess = private)
         stimulus
+        description
     end
     
     methods
@@ -28,7 +29,9 @@ classdef SquareWave < AuditoryStimulus
             stimulus = obj.addPad(stimulus);
         end
         
-        
+        function description = get.description(obj)
+            description = [num2str(obj.freq),'Hz square wave'];
+        end
         
     end
     
