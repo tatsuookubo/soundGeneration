@@ -1,8 +1,13 @@
-% stim = PipStimulus; 
-% stim.maxVoltage = 1; 
-% stim.numPips = 60; 
-% plot(stim) 
+%%
+stim = PipStimulus; 
+stim.maxVoltage = 1; 
+stim.numPips = 60; 
+plot(stim) 
+for i = 1:100 
+    playSound(stim) 
+end
 
+%% 
 stim = SineWave; 
 stim.carrierFreqHz = 50; 
 stim.maxVoltage = 2; 
