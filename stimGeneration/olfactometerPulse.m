@@ -38,11 +38,19 @@ stim.stimDur = odorDur;
 
 switch trialMeta.stimNum
     case 1
-        stim.description = 'headwind';
+        stim.description = '0 deg';
     case 2
-        stim.description = 'R 90 deg';
+        stim.description = 'R 45 deg';
     case 3
-        stim.description = 'tailwind';
+        stim.description = 'R 90 deg';
     case 4
+        stim.description = 'R 135 deg';
+    case 5
+        stim.description = '180 deg';        
+    case 6
+        stim.description = 'L 135 deg';
+    case 7
         stim.description = 'L 90 deg';
+    case 8
+        stim.description = 'L 45 deg';
 end
